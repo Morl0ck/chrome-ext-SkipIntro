@@ -14,6 +14,14 @@ This is a Chrome extension that allows you to skip video intros with media keys.
 
 5. The extension should now be loaded and visible on the Extensions page.
 
+## Usage
+
+Currently, this extension only works with Crunchyroll.
+
+Pressing the `nextTrack` media key on your keyboard skips intros, outros, and preview.
+
+Setting for `autoSkipIntro` can be found in the options or by clicking the extension.
+
 ## Contributing
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
