@@ -1,3 +1,20 @@
+const clickSkipButton = () => {
+  const skipButton = document.querySelector('[data-testid="skipButton"] > div');
+  if (skipButton) {
+    skipButton.click();
+    return true;
+  }
+  return false;
+};
+
+const restoreOptions = () => {
+  chrome.storage.sync.get({ autoSkipIntro: false }, (items) => {
+    if (items.autoSkipIntro) {
+      setInterval(clickSkipButton, 1000);
+    }
+  });
+};
+
 if ("mediaSession" in navigator) {
   const videoElement = document.querySelector("video");
 
@@ -14,14 +31,12 @@ if ("mediaSession" in navigator) {
   });
 
   navigator.mediaSession.setActionHandler("nexttrack", () => {
-    const skipButton = document.querySelector(
-      '[data-testid="skipButton"] > div'
-    );
-    if (skipButton) skipButton.click();
-    else console.log("Next track button pressed");
+    if (!clickSkipButton()) console.log("Next track button pressed");
   });
 
   // navigator.mediaSession.setActionHandler("previoustrack", () => {
   //   console.log("Previous track button pressed");
   // });
 }
+
+restoreOptions();
