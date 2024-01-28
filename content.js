@@ -31,12 +31,13 @@ if ("mediaSession" in navigator) {
   });
 
   navigator.mediaSession.setActionHandler("nexttrack", () => {
-    if (!clickSkipButton()) console.log("Next track button pressed");
+    if (!clickSkipButton()) videoElement.currentTime += 10;
   });
 
-  // navigator.mediaSession.setActionHandler("previoustrack", () => {
-  //   console.log("Previous track button pressed");
-  // });
+  navigator.mediaSession.setActionHandler("previoustrack", () => {
+    // set video playback back 10 seconds
+    videoElement.currentTime -= 10;
+  });
 }
 
 restoreOptions();
