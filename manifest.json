@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Skip Intro",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://static.crunchyroll.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true
+    }
+  ]
+}
